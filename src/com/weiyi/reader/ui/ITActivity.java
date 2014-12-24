@@ -157,42 +157,10 @@ public class ITActivity extends BaseActivity implements OnTouchListener,
 		addClickListener();
 		new DownLoadThread().start();
 		super.onCreate(savedInstanceState);
-		// webView = new WebView(this);
-		// webView.getSettings().setJavaScriptEnabled(true);
-		// setContentView(webView);
-		// webView.getSettings().setPluginsEnabled(true);
-		// webView.getSettings().setAllowFileAccess(true);
-		// webView.getSettings().setPluginState(PluginState.ON);
-		// webView.loadUrl("file:///sdcard/hl.swf");//
-		// flash�ļ�����sd���µ�TenFu��
-		// handlers = new Handler() {
-		//
-		// @Override
-		// public void handleMessage(Message msg) {
-		// webView.loadDataWithBaseURL(url, c, "text/html", "UTF-8", null);
-		// }
-		//
-		// };
-		// new Thread() {
-		// public void run() {
-		// try {
-		// doc = Jsoup.connect(url).get();
-		// } catch (IOException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
-		// Elements titles = doc.getElementsByClass("tableborder1")
-		// .tagName("TABLE");// ��ȡ����class=link_title�ı�ǩԪ��
-		// c = titles.get(0).html();
-		// handlers.sendEmptyMessage(0x123);
-		// }
-		// }.start();
 	}
 
 	@Override
 	protected void onDestroy() {
-		// stopService(new Intent(getApplicationContext(),
-		// AppStatusService.class));
 		super.onDestroy();
 	}
 
@@ -204,11 +172,7 @@ public class ITActivity extends BaseActivity implements OnTouchListener,
 		}
 	}
 
-	/**
-	 * ��ʼ��View,��δCategory���������������
-	 * */
 	public void initMainView() {
-		// ������3DЧ������
 		initMainTitle();
 		disgrace = (RelativeLayout) findViewById(R.id.disgrace);
 		seductive = (RelativeLayout) findViewById(R.id.seductive);
@@ -237,10 +201,8 @@ public class ITActivity extends BaseActivity implements OnTouchListener,
 		peopleTime.setText(day + String.valueOf(random.nextInt(1500)) + time);
 		militaryTime.setText(day + String.valueOf(random.nextInt(1500)) + time);
 		carTime.setText(day + String.valueOf(random.nextInt(1500)) + time);
-		// ��ȡ�ײ������˵�View
 		initFooterMenuView(Constant.IT_MAIN_PAGE);
 		mProgressBarImage = (ImageView) findViewById(R.id.toolbar_progress_image);
-		// ������Ϣ�����½���
 		handler = new Handler() {
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
@@ -391,15 +353,10 @@ public class ITActivity extends BaseActivity implements OnTouchListener,
 			footerItBuiness.setTextColor(Color.BLACK);
 
 		}
-		// �ײ�������ע��
 		footerHelp.setOnTouchListener(this);
 		footerItBuiness.setOnTouchListener(this);
 		footerItInfo.setOnTouchListener(this);
 		footerMain.setOnTouchListener(this);
-		// footerHelp.setOnClickListener(this);
-		// footerItBuiness.setOnClickListener(this);
-		// footerItInfo.setOnClickListener(this);
-		// footerMain.setOnClickListener(this);
 	}
 
 	private void changeFooterViewBg() {
@@ -424,9 +381,6 @@ public class ITActivity extends BaseActivity implements OnTouchListener,
 
 	}
 
-	/**
-	 * ���ĳһ����������ʾ��Ϻ�������ʾ���ؽ���������������
-	 * */
 	public void hiddenProgress() {
 		if (toolbarProgress != null)
 			toolbarProgress.setVisibility(ProgressBar.GONE);
@@ -630,38 +584,25 @@ public class ITActivity extends BaseActivity implements OnTouchListener,
 		});
 	}
 
-	/**
-	 * ����ʣ�����ݣ����ظ��������
-	 * */
 	public void loadMoreData() {
 		new DownLoadThread().start();
 		Log.v("loadMoreData1", itAdapter.getCount() + "");
 		int count = itAdapter.getCount();
 		if (count + Constant.LOAD_ROW_TIME < pageRowNum) {
-			// ÿ�μ���Constant.LOAD_ROW_TIME ��
 			for (int i = count; i < count + Constant.LOAD_ROW_TIME; i++) {
 				if (sumData.size() > i)
 					data.add(sumData.get(i));
 				Log.v("loadMoreData2", itAdapter.getCount() + "");
-				// itAdapter.notifyDataSetChanged();
-				// listView.requestFocusFromTouch();
-				// ,���������������ListView���ô˷���
 			}
 		} else {
-			// �����Ѿ�����5��
 			for (int i = count; i < pageRowNum; i++) {
 				if (sumData.size() > i)
 					data.add(sumData.get(i));
 				Log.v("loadMoreData3", itAdapter.getCount() + "");
-				// itAdapter.notifyDataSetChanged();
-				// listView.requestFocusFromTouch();
-				// ,���������������ListView���ô˷���
 			}
 		}
-		isLoadmoreOver = true;// ���ظ���
+		isLoadmoreOver = true;
 		handler.sendEmptyMessage(Constant.LOAD_MORE_FINISH);
-		// footerLoadProcess.setVisibility(LinearLayout.GONE);
-		// hiddenProgress();
 	}
 
 	/**
@@ -757,6 +698,12 @@ public class ITActivity extends BaseActivity implements OnTouchListener,
 			super.onPreExecute();
 		}
 
+		// <span class="link_title">
+		// <a
+		// href="/up1up2up3/article/details/8191923">
+		// 师傅的智慧</a>
+		// </span>
+
 		@Override
 		protected List<ITBlog> doInBackground(String... params) {
 			List<ITBlog> itBlogs = new ArrayList<ITBlog>();
@@ -817,7 +764,7 @@ public class ITActivity extends BaseActivity implements OnTouchListener,
 		@Override
 		protected void onPostExecute(List<ITBlog> result) {
 			Log.v("onPostExecute....", isCancelled() + "");
-			if (isCancelled() || result == null) {// ����߳���ȡ���������ݲ�����
+			if (isCancelled() || result == null) {
 				if (itAdapter != null) {
 					itAdapter.notifyDataSetChanged();
 				}
@@ -830,7 +777,6 @@ public class ITActivity extends BaseActivity implements OnTouchListener,
 				Toast.makeText(ITActivity.this, R.string.not_data,
 						Toast.LENGTH_SHORT).show();
 			}
-			// �������������б�ȫ���������
 			initSumData(result);
 			if (itAdapter != null)
 				itAdapter.notifyDataSetChanged();
@@ -862,52 +808,18 @@ public class ITActivity extends BaseActivity implements OnTouchListener,
 		}
 	}
 
-	// @Override
-	// public void onClick(View v) {
-	// switch (v.getId()) {
-	// case R.id.footer_main:
-	// changeFooterViewBg();
-	// footerMain.setTextColor(Color.RED);
-	// onCreate(savedInstanceState);
-	// break;
-	// case R.id.footer_help:
-	// changeFooterViewBg();
-	// // startActivity(new Intent(this, HelpActivity.class));
-	// initHelp();
-	// break;
-	// case R.id.footer_it_info:// �ղ�
-	// changeFooterViewBg();
-	// footerItInfo.setTextColor(Color.RED);
-	// initAfterClickView(Constant.COLLECT_CATEGORY_TITLE,
-	// Constant.COLLECT_CATEGORY_TITLE);
-	// break;
-	// case R.id.footer_it_business:// ����
-	// changeFooterViewBg();
-	// footerItBuiness.setTextColor(Color.RED);
-	// initCartoonView();
-	// break;
-	// }
-	// }
-
 	private void initCartoonView() {
-		// TODO Auto-generated method stub
 		setContentView(R.layout.cartoon_layout);
 		myGridView = (MyGridView) findViewById(R.id.cartoon_grid_view);
-		// ��ȡͷ�����ȱ���
 		toolbarBack = (ImageView) findViewById(R.id.toolbar_back);
 		toolbarProgress = (ProgressBar) findViewById(R.id.toolbar_progress);
 		currentCategoryTitle = (TextView) findViewById(R.id.it_category_title);
-		// ���ԭ������
 		clear();
 		currentCategoryTitle.setText(Constant.CARTOON_CATEGORY_TITLE);
 		photos = new ArrayList<NicePhoto>();
 		adapter = new NiceEyeGridAdapter(this, photos);
 		myGridView.setAdapter(adapter);
-		// Utility.setGridViewHeightBasedOnChildren(gridView);//
-		// ���ScrollView��ListViewǶ������
-		// �������ֵ�ͷ������
 		initTitleLayout();
-		// ���������б�
 		cartoonTask = new PhotoBlogListAsyncTask(this);
 		cartoonTask.execute(Constant.CARTOON_CATEGORY_URL);
 		myGridView.setOnItemClickListener(new OnItemClickListener() {
@@ -915,7 +827,6 @@ public class ITActivity extends BaseActivity implements OnTouchListener,
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long id) {
-				// TODO Auto-generated method stub
 				if (position >= photos.size()) {
 					Toast.makeText(ITActivity.this, R.string.wait_load,
 							Toast.LENGTH_SHORT).show();
@@ -943,13 +854,12 @@ public class ITActivity extends BaseActivity implements OnTouchListener,
 		showDate.setText(new SimpleDateFormat("yyyy��MM��dd��")
 				.format(new Date()));
 
-		// ��ȡ����������
 		point_images_layout = (LinearLayout) findViewById(R.id.point_images_layout);
 		images_point = new ImageView[point_images_layout.getChildCount()];
 		title_image = (MyNetImageView) findViewById(R.id.title_image);
 		tempImage = new int[] { R.drawable.loadimg_bg, R.drawable.loadimg_bg,
 				R.drawable.loadimg_bg };
-		setScrollerImagePoint();// ����pointͼ��λ��
+		setScrollerImagePoint();
 		final Handler handler = new Handler() {
 
 			@Override

@@ -33,13 +33,11 @@ public class NiceEyeGridAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		return photos.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
 		return photos.get(arg0);
 	}
 
@@ -63,7 +61,7 @@ public class NiceEyeGridAdapter extends BaseAdapter {
 			viewHolder.textView = (TextView) view
 					.findViewById(R.id.nice_eye_title);
 			photo = photos.get(position);
-			// ÉèÖÃÍ¼±ê
+			// ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
 			String urlFirst;
 			boolean isCartoon = false;
 			if (photo.getPhotoUrls() == null) {
@@ -73,7 +71,8 @@ public class NiceEyeGridAdapter extends BaseAdapter {
 				urlFirst = photo.getPhotoUrls().get(0);
 			}
 			if (urlFirst == null) {
-				Toast.makeText(context, "Á¬½Ó³¬Ê±£¬ÇëÖØÊÔ£¡", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, "ï¿½ï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½", Toast.LENGTH_SHORT)
+						.show();
 				viewHolder.textView.setText(photo.getTilte());
 				viewHolder.myNetImageView.setImageBitmap(BitmapFactory
 						.decodeResource(context.getResources(),
@@ -82,15 +81,16 @@ public class NiceEyeGridAdapter extends BaseAdapter {
 				view.setTag(viewHolder);
 				return view;
 			}
-			if (FileUtil.validUrl(urlFirst)) {// ±¾µØ×ÊÔ´×ÊÔ´¿â
+			if (FileUtil.validUrl(urlFirst)) {
 				BitmapFactory.Options options = new Options();
 				options.inSampleSize = 2;
 				viewHolder.myNetImageView.setImageBitmap(BitmapFactory
 						.decodeResource(context.getResources(),
 								Integer.valueOf(urlFirst), options));
-			} else {// ÍøÂçÍ¼¿â
+			} else {
 				if (photo.getIconUrl() != null) {
-					viewHolder.myNetImageView.setImgUrl(photo.getIconUrl(),isCartoon);
+					viewHolder.myNetImageView.setImgUrl(photo.getIconUrl(),
+							isCartoon);
 				}
 			}
 			viewHolder.textView.setText(photo.getTilte());

@@ -3,6 +3,7 @@ package com.weiyi.reader.view;
 import com.weiyi.reader.common.ImageDownloadAsyncTask;
 import com.weiyi.reader.util.MyNetImageCacheManager;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
@@ -113,7 +114,6 @@ public class GestureImageView extends ImageView {
 
 	@Override
 	protected void onAttachedToWindow() {
-		// TODO Auto-generated method stub
 		Rect rect = new Rect();
 		this.getWindowVisibleDisplayFrame(rect);
 		super.onAttachedToWindow();
@@ -127,8 +127,8 @@ public class GestureImageView extends ImageView {
 		this.imageWidth = this.getDrawable().getIntrinsicWidth();
 		this.imageHeight = this.getDrawable().getIntrinsicHeight();
 
-		Log.v(TAG, "screen_width:" + screen_width+"::::"+this.imageWidth );
-		Log.v(TAG, "screen_height:" + screen_height+":::"+this.imageHeight);
+		Log.v(TAG, "screen_width:" + screen_width + "::::" + this.imageWidth);
+		Log.v(TAG, "screen_height:" + screen_height + ":::" + this.imageHeight);
 		if (screen_width > imageWidth && screen_height > imageHeight) {
 			initScalePic();
 		}
@@ -337,14 +337,17 @@ public class GestureImageView extends ImageView {
 		return imageHeight;
 	}
 
+	@SuppressLint("Override")
 	private float getScaleX() {
 		return getScaleX(this.getImageMatrix());
 	}
 
+	@SuppressLint("Override")
 	private float getScaleX(Matrix matrix) {
 		return getValue(matrix, Matrix.MSCALE_X);
 	}
 
+	@SuppressLint("Override")
 	private float getScaleY() {
 		return getScaleY(this.getImageMatrix());
 	}

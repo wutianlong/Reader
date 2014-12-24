@@ -13,15 +13,15 @@ import android.widget.Gallery;
 import com.weiyi.reader.util.ViewUtil;
 
 /**
- * ×Ô¶¨ÒåGalleryÐ§¹û£¬Õ¹Ê¾ÔÚÏßÐ¡ËµÁÐ±í
+ * ï¿½Ô¶ï¿½ï¿½ï¿½GalleryÐ§ï¿½ï¿½ï¿½ï¿½Õ¹Ê¾ï¿½ï¿½ï¿½ï¿½Ð¡Ëµï¿½Ð±ï¿½
  * 
- * @author ÎºÒÕÈÙ
+ * @author Îºï¿½ï¿½ï¿½ï¿½
  * @version 1.0
  * */
 public class MyGallery extends Gallery {
 	private Camera camera = new Camera();
-	private int maxRotationAngle = 50;// ×î´óÐý×ª½Ç¶È£¬·Â3DÇÐ»»Ð§¹û
-	private int maxZoom = -200;// ×î´óËõ·ÅÖµ,¸ºÊý¼´·Å´óÍ¼Æ¬£¨À­½üÍ¼Æ¬£©
+	private int maxRotationAngle = 50;// ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½ï¿½3Dï¿½Ð»ï¿½Ð§ï¿½ï¿½
+	private int maxZoom = -200;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å´ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½
 
 	public MyGallery(Context context) {
 		super(context);
@@ -41,26 +41,19 @@ public class MyGallery extends Gallery {
 													// constructor stub
 	}
 
-	/**
-	 * setStaticTransformationsEnabledÕâ¸öÊôÐÔÉè³ÉtrueµÄÊ±ºò
-	 * Ã¿´ÎviewGroup(¿´GalleryµÄÔ´Âë¾Í¿ÉÒÔ¿´µ½ËüÊÇ´ÓViewGroup ¼ä½Ó¼Ì³Ð¹ýÀ´µÄ)
-	 * ÔÚÖØÐÂ»­ËüµÄchildµÄÊ±ºò¶¼»á´Ù·¢getChildStaticTransformationÕâ¸öº¯Êý¡£
-	 * */
 	@Override
 	protected boolean getChildStaticTransformation(View child, Transformation t) {
 		int childCenter = ViewUtil.getCenterOfView(child);
 		int ratationAngle = 0;
 
-		// ¿ªÊ¼½øÐÐ×ª»»
 		t.clear();
 		t.setTransformationType(Transformation.TYPE_MATRIX);
-		if (childCenter == getCenterOfGallery()) {// Èç¹û´ËViewÔÚGalleryÖÐÐÄÔò²»Ðè×ª»¯£¨ÇÐ»»£©
+		if (childCenter == getCenterOfGallery()) {// ï¿½ï¿½ï¿½ï¿½ï¿½Viewï¿½ï¿½Galleryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½
 			transformWithCamera(child, t, 0);
 		} else {
-			// ¼ÆËãËùÐèÐý×ª½Ç¶È
 			ratationAngle = ((getCenterOfGallery() - ViewUtil
 					.getCenterOfView(child)) / child.getWidth())
-					* maxRotationAngle;// ¹Ø¼üÖ®Ò»
+					* maxRotationAngle;// ï¿½Ø¼ï¿½Ö®Ò»
 			if (Math.abs(ratationAngle) > maxRotationAngle) {
 				ratationAngle = (ratationAngle < 0) ? -maxRotationAngle
 						: maxRotationAngle;
@@ -70,9 +63,6 @@ public class MyGallery extends Gallery {
 		return true;
 	}
 
-	/**
-	 * Íê³ÉÍ¼Æ¬µÄÐý×ªÐ§¹û£¬Í¨¹ýCameraºÍMatrixÍê³É
-	 * */
 	private void transformWithCamera(View child, Transformation t,
 			int rotationAngle) {
 		camera.save();
@@ -81,7 +71,7 @@ public class MyGallery extends Gallery {
 		int imgHeight = child.getLayoutParams().height;
 		int rotation = Math.abs(rotationAngle);
 
-		camera.translate(0.0f, 0.0f, 100.0f);// ÒÆ¶¯cameraµÄÊÓ½Ç
+		camera.translate(0.0f, 0.0f, 100.0f);
 		if (rotation < maxRotationAngle) {
 			float zoomAmount = (float) (maxZoom + (rotation * 1.5));
 			camera.translate(0.0f, 0.0f, zoomAmount);
@@ -114,17 +104,12 @@ public class MyGallery extends Gallery {
 		this.maxZoom = maxZoom;
 	}
 
-	/**
-	 * Ò»´Î»¬¶¯Ö»¹ö¶¯Ò»ÕÅÍ¼Æ¬
-	 */
 	@Override
 	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 			float velocityY) {
 		if (velocityX > 0) {
-			// Íù×ó±ß»¬¶¯
 			super.onKeyDown(KeyEvent.KEYCODE_DPAD_LEFT, null);
 		} else {
-			// ÍùÓÒ±ß»¬¶¯
 			super.onKeyDown(KeyEvent.KEYCODE_DPAD_RIGHT, null);
 		}
 		return false;

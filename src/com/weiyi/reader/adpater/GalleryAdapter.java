@@ -35,19 +35,16 @@ public class GalleryAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		return categorys.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
 		return categorys.get(arg0);
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
 		return arg0;
 	}
 
@@ -70,13 +67,6 @@ public class GalleryAdapter extends BaseAdapter {
 		return view;
 	}
 
-	/**
-	 * 根据传入的类型获取对应的源Bitmap，作为Gallery的每项背景
-	 * 
-	 * @param type
-	 *            类别
-	 * @return
-	 * */
 	public Bitmap getOriginalBitmapByType(String type) {
 		return BitmapFactory.decodeResource(itActivity.getResources(),
 				DataUtil.getResIdByType(type));

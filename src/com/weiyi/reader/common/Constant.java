@@ -1,74 +1,70 @@
 package com.weiyi.reader.common;
 
 public class Constant {
-	// ·ÖÒ³³£Á¿
-	public final static int FIRST_ROW_NUM = 5;// µÚÒ»´ÎÏÔÊ¾ÌõÊý/Ò³
-	public final static int LOAD_ROW_TIME = 5;// Ã¿´Î¼ÓÔØ¼¸Ìõ¼ÇÂ¼
-	// HandlerÏûÏ¢ÀàÐÍ³£Êý
-	public final static int LOAD_MORE_FINISH = 3;// ¼ÓÔØÍê³É±êÖ¾,handlerÏûÏ¢
-	public final static int LOAD_BLOG_AFTER_CLICK = 4;// ÇÐ»»µ½²©¿ÍÁÐ±í½çÃæ¡£ÌáÊ¾¿ªÊ¼¼ÓÔØ
-	// ½âÎöHtml
-	public final static String ITBLOG_TITLE_CLASS = "link_title";// £É£Ô£Â£Ì£Ï£Ç±êÌâclassÊôÐÔ
-	public final static String ITBlOG_DATE_CLASS = "link_postdate";// ITBLOGÈÕÆÚ
-																	// µÄclassÊôÐÔ
-	public final static String ITBlOG_CONTENT_ID = "article_content";// ITBLOGÄÚÈÝµÄIDÊôÐÔ
-	public final static String HREF_SELECT = "a[href]";// ³¬Á´½ÓÑ¡ÔñÆ÷
-	public final static String ITBLOG_HREF_FILTER = "/weiyirong/article";// ³¬Á´½Ó¹ýÂË
+	public final static int FIRST_ROW_NUM = 5;// ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½/Ò³
+	public final static int LOAD_ROW_TIME = 5;// Ã¿ï¿½Î¼ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
+	public final static int LOAD_MORE_FINISH = 3;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É±ï¿½Ö¾,handlerï¿½ï¿½Ï¢
+	public final static int LOAD_BLOG_AFTER_CLICK = 4;// ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½æ¡£ï¿½ï¿½Ê¾ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+	public final static String ITBLOG_TITLE_CLASS = "link_title";// ï¿½É£Ô£Â£Ì£Ï£Ç±ï¿½ï¿½ï¿½classï¿½ï¿½ï¿½ï¿½
+	public final static String ITBlOG_DATE_CLASS = "link_postdate";// ITBLOGï¿½ï¿½ï¿½ï¿½
+																	// ï¿½ï¿½classï¿½ï¿½ï¿½ï¿½
+	public final static String ITBlOG_CONTENT_ID = "article_content";// ITBLOGï¿½ï¿½ï¿½Ýµï¿½IDï¿½ï¿½ï¿½ï¿½
+	public final static String HREF_SELECT = "a[href]";// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½
+	public final static String ITBLOG_HREF_FILTER = "/weiyirong/article";// ï¿½ï¿½ï¿½ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½
 	// URL
-	public final static String ITBLOG_URL = "http://blog.csdn.net";// ITÔÄ¶ÁÖ÷µØÖ·
-	public final static String DISGRACE_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228567";// ôÜÊÂ
-	public final static String SEDUCTIVE_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228568";// ÑøÑÛÃÀÍ¼
-	public final static String STORY_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228570";// ÆæÎÅÒìÊÂ
-	public final static String PEOPLE_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228571";// ÈËÎïÖÜ¿¯
-	public final static String HOT_NEWS_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228569";// »·ÇòÈÈµã
-	public final static String CAR_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228572";// Ãû³µÉÍÎö
-	// µ×²¿²Ëµ¥URL
-	public final static String CARTOON_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228833";// Âþ»­
+	public final static String ITBLOG_URL = "http://blog.csdn.net";
+	public final static String DISGRACE_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228567";
+	public final static String SEDUCTIVE_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228568";
+	public final static String STORY_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228570";
+	public final static String PEOPLE_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228571";
+	public final static String HOT_NEWS_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228569";
+	public final static String CAR_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228572";
+	public final static String CARTOON_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1228833";
 
-	public final static String ITRELAX_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1133874";// ÇáËÉÒ»¿Ì
+	public final static String ITRELAX_CATEGORY_URL = "http://blog.csdn.net/weiyirong/article/category/1133874";
 
 	public final static String IT_UPDATE_URL = "http://apka.mumayi.com/3/35240/renzhewuji_V1.1.2_mumayi_443da.apk";
-	// ·ÖÀàÎÄÕÂµÄ±êÌâÃû³Æ
-	public final static String DISGRACE_CATEGORY_TITLE = "ôÜÊÂ";
-	public final static String SEDUCTIVE_CATEGORY_TITLE = "ÃÀÍ¼ÉÍÎö";
-	public final static String STORY_CATEGORY_TITLE = "ÆæÎÅÒìÊÂ";
-	public final static String PEOPLE_CATEGORY_TITLE = "ÈËÎïÖÜ¿¯ ";
-	public final static String HOT_NEWS_CATEGORY_TITLE = "¾üÊÂ×Ýºá";
-	public final static String CAR_CATEGORY_TITLE = "Ãû³µÒ»ÀÀ";
-	// ·ÖÀàÎÄÕÂµÄ¼ò½é
-	public final static String DISGRACE_CATEGORY_SUMMARY = "ôÜÊÂ";
-	public final static String SEDUCTIVE_CATEGORY_SUMMARY = "ÑøÑÛÃÀÍ¼";
-	public final static String STORY_CATEGORY_SUMMARY = "ÆæÎÅÒìÊÂ";
-	public final static String PEOPLE_CATEGORY_SUMMARY = "ÈËÎïÖÜ¿¯ ";
-	public final static String HOT_NEWS_CATEGORY_SUMMARY = "»·ÇòÈÈµã";
-	public final static String CAR_CATEGORY_SUMMARY = "Ãû³µÉÍÎö";
-	// µ×²¿²Ëµ¥Ãû
-	public final static String CARTOON_CATEGORY_TITLE = "Âþ»­";
-	public final static String COLLECT_CATEGORY_TITLE = "ÊÕ²Ø";
-	// µ×²¿±ãÇ©²Ëµ¥±êÖ¾
-	public final static String IT_MAIN_PAGE = "IT_Main_Page";// Ê×Ò³¡£¼´Ö÷½çÃæ
-	public final static String IT_HELP_PAGE = "IT_Help_Page";// °ïÖ÷Ò³Ãæ£¬¹ØÓÚ
-	// Ëõ·ÅÍ¼Æ¬µÄÓÃÍ¾
-	public final static String FOR_BLOG_ICON = "forBlogIcon";// ÎªBlog±êÍ·µÄICONËõ·Å£¬Ê¹Æä×ÔÊÊÓ¦´óÐ¡
-	public final static String FOR_FOOTER_MENU_BG = "forFooterMenuBg";// Îªµ×²¿Ñ¡Ôñ²Ëµ¥±³¾°µÄÉèÖÃËõ·Å
-	// ·¢ËÍ¹ã²¥£¬¹ã²¥ÀàÐÍ
-	public final static String SOCKETTIMEOUT = "com.weiyi.reader.sockettimeout";// Á´½Ó³¬Ê±
-	public final static String UPDATE_ITREADER_NOTIFY = "com.weiyi.reader.update";// Èí¼þ¸üÐÂ¹ã²¥
-	// Ò»Ð©¹«¹²³£Á¿
-	public final static String CURRENT_RUN_APP = "ÌìÓ¥ÀÖÔÄ£¬ÓäÔÃÄãÎÒ...";// ÌØÊâµÄÎÄÕÂ±êÌâ£¬¸üÐÂÈí¼þ
-	public final static String IT_APP = "ÌìÓ¥ÀÖÔÄ";
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public final static String DISGRACE_CATEGORY_TITLE = "ï¿½ï¿½ï¿½ï¿½";
+	public final static String SEDUCTIVE_CATEGORY_TITLE = "ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½";
+	public final static String STORY_CATEGORY_TITLE = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+	public final static String PEOPLE_CATEGORY_TITLE = "ï¿½ï¿½ï¿½ï¿½ï¿½Ü¿ï¿½ ";
+	public final static String HOT_NEWS_CATEGORY_TITLE = "ï¿½ï¿½ï¿½ï¿½ï¿½Ýºï¿½";
+	public final static String CAR_CATEGORY_TITLE = "ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½";
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄ¼ï¿½ï¿½
+	public final static String DISGRACE_CATEGORY_SUMMARY = "ï¿½ï¿½ï¿½ï¿½";
+	public final static String SEDUCTIVE_CATEGORY_SUMMARY = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼";
+	public final static String STORY_CATEGORY_SUMMARY = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+	public final static String PEOPLE_CATEGORY_SUMMARY = "ï¿½ï¿½ï¿½ï¿½ï¿½Ü¿ï¿½ ";
+	public final static String HOT_NEWS_CATEGORY_SUMMARY = "ï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½";
+	public final static String CAR_CATEGORY_SUMMARY = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+	// ï¿½×²ï¿½ï¿½Ëµï¿½ï¿½ï¿½
+	public final static String CARTOON_CATEGORY_TITLE = "ï¿½ï¿½ï¿½ï¿½";
+	public final static String COLLECT_CATEGORY_TITLE = "ï¿½Õ²ï¿½";
+	// ï¿½×²ï¿½ï¿½ï¿½Ç©ï¿½Ëµï¿½ï¿½ï¿½Ö¾
+	public final static String IT_MAIN_PAGE = "IT_Main_Page";// ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public final static String IT_HELP_PAGE = "IT_Help_Page";// ï¿½ï¿½ï¿½ï¿½Ò³ï¿½æ£¬ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½Í¾
+	public final static String FOR_BLOG_ICON = "forBlogIcon";// ÎªBlogï¿½ï¿½Í·ï¿½ï¿½ICONï¿½ï¿½ï¿½Å£ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ð¡
+	public final static String FOR_FOOTER_MENU_BG = "forFooterMenuBg";// Îªï¿½×²ï¿½Ñ¡ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½Í¹ã²¥ï¿½ï¿½ï¿½ã²¥ï¿½ï¿½ï¿½ï¿½
+	public final static String SOCKETTIMEOUT = "com.weiyi.reader.sockettimeout";// ï¿½ï¿½ï¿½Ó³ï¿½Ê±
+	public final static String UPDATE_ITREADER_NOTIFY = "com.weiyi.reader.update";// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹ã²¥
+	// Ò»Ð©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public final static String CURRENT_RUN_APP = "ï¿½ï¿½Ó¥ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...";// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public final static String IT_APP = "ï¿½ï¿½Ó¥ï¿½ï¿½ï¿½ï¿½";
 
-	// ½âÎöHtml¿ÉÊ¶±ð±êÊ¾·û
-	public final static String BLOG_TITLE_CLASS = "link_title";// blog±êÌâclassÊôÐÔ
-	public final static String BlOG_DATE_CLASS = "link_postdate";// BLOGÈÕÆÚµÄclassÊôÐÔ
-	public final static String BLOG_DESCRIPTION = "article_description";// ²©ÎÄ¼òÊöµÄclassÊôÐÔ
-	public final static String BlOG_CONTENT_ID = "article_content";// BLOGÄÚÈÝµÄIDÊôÐÔ
+	// ï¿½ï¿½ï¿½ï¿½Htmlï¿½ï¿½Ê¶ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
+	public final static String BLOG_TITLE_CLASS = "link_title";// blogï¿½ï¿½ï¿½ï¿½classï¿½ï¿½ï¿½ï¿½
+	public final static String BlOG_DATE_CLASS = "link_postdate";// BLOGï¿½ï¿½ï¿½Úµï¿½classï¿½ï¿½ï¿½ï¿½
+	public final static String BLOG_DESCRIPTION = "article_description";// ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½classï¿½ï¿½ï¿½ï¿½
+	public final static String BlOG_CONTENT_ID = "article_content";// BLOGï¿½ï¿½ï¿½Ýµï¿½IDï¿½ï¿½ï¿½ï¿½
 
 	public static final String[] fontList = new String[] { "10", "11", "12",
 			"13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23",
 			"24", "25" };
 	public static final String FONTKEY = "fontsize";
-	// ÏÂÔØµØÖ·
+	// ï¿½ï¿½ï¿½Øµï¿½Ö·
 	public static final String hAnZhi = "http://a.apk.anzhi.com/apk/201210/19/com.weiyi.reader.ui_29214500_0.apk";
 	public static final String iAnZhi = "http://a.apk.anzhi.com/apk/201210/15/com.weiyi.itreader.ui_24572900_0.apk";
 	public static final String hAnZhuo = "http://cdn.market.hiapk.com/data/upload/2012/10_18/14/com.weiyi.reader.ui_145024.apk";

@@ -2,7 +2,6 @@ package com.weiyi.reader.util;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.View;
 
 public class ViewUtil {
@@ -11,13 +10,6 @@ public class ViewUtil {
 		public int height;
 	}
 
-	/**
-	 * 获取View的中心点
-	 * 
-	 * @param view
-	 *            View对象
-	 * @return
-	 * */
 	public static int getCenterOfView(View view) {
 		return view.getLeft() + view.getWidth() / 2;
 	}

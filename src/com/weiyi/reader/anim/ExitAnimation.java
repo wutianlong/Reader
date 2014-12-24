@@ -12,7 +12,6 @@ public class ExitAnimation extends Animation {
 
 	@Override
 	protected void applyTransformation(float interpolatedTime, Transformation t) {
-		// TODO Auto-generated method stub
 		super.applyTransformation(interpolatedTime, t);
 		Matrix matrix = t.getMatrix();
 		if (interpolatedTime < 0.8) {

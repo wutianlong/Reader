@@ -1,6 +1,5 @@
 package com.weiyi.reader.util;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,70 +8,41 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.WeakHashMap;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Bitmap.CompressFormat;
 import android.os.Environment;
 import android.util.Log;
-import android.widget.Toast;
 
-/**
- * ÍøÂçÍ¼Æ¬»º´æ¹ÜÀí
- * 
- * @author ÎºÒÕÈÙ
- * @version 1.0
- * */
 public class MyNetImageCacheManager extends WeakHashMap<String, Bitmap> {
-	private static final String CACHE_FILE = "/Reader/Cache";// »º´æÎÄ¼ş¼Ğ
+	private static final String CACHE_FILE = "/Reader/Cache";
 	private static MyNetImageCacheManager myNetImgCache = new MyNetImageCacheManager();
 
 	public static MyNetImageCacheManager getInstance() {
 		return myNetImgCache;
 	}
 
-	/**
-	 * ÅĞ¶ÏÍ¼Æ¬ÊÇ·ñ´æÔÚ£ºÏÈÅĞ¶Ï»º´æÀïÊÇ·ñÓÉ´ËÍ¼Æ¬£¬ÔÙÅĞ¶Ï±¾µØ»º´æÎÄ¼şÀïÊÇ·ñÓÉ´ËÍ¼Æ¬
-	 * 
-	 * @param url
-	 * @return
-	 * */
 	public boolean isBitmapExist(String url) {
 		boolean isExist = containsKey(url);
-		if (!isExist) {// Èç¹ûÄÚ´æÖĞ²»´æÔÚ´ËÍ¼Æ¬£¬ÔòÅĞ¶Ï±¾µØÎÄ¼ş»º´æÊÇ·ñÓĞ´ËÍ¼Æ¬
+		if (!isExist) {
 			isExist = isBitmapExistLocal(url);
 		}
 		return isExist;
 	}
 
-	/**
-	 * ÅĞ¶Ï±¾µØ»º´æÎÄ¼şÖĞÊÇ·ñ´æÔÚ´ËÍ¼Æ¬×ÊÔ´
-	 * 
-	 * @param url
-	 * @return
-	 * */
 	private boolean isBitmapExistLocal(String url) {
 		boolean isExistLocal = true;
-		String fileName = UrlToFileName(url);// ÒòÎªÎÄ¼şÃûÃüÃûÖĞ²»×¼³öÏÖ·Ç·¨µÄÒ»Ğ©×Ö·û£¨URL´æÔÚÕâÖÖ×Ö·û£©
-		String path = isExistCachePath();// ÊÇ·ñ´æÔÚ»º´æÄ¿Â¼
+		String fileName = UrlToFileName(url);
+		String path = isExistCachePath();
 		File file = new File(path, fileName);
 		if (!file.exists()) {
 			isExistLocal = false;
-		} else {// Èç¹û´æÔÚµÄ»°£¬°Ñ´Ë×ÊÔ´»º´æµ½ÄÚ´æ
+		} else {
 			isExistLocal = cacheBitmapToMemory(file, url);
 		}
 		return isExistLocal;
 	}
 
-	/**
-	 * ½«BitmapÍ¼Æ¬»º´æµ½µ½ÄÚ´æÖĞ,Ö»ÊÇ»º´æµ½ÄÚ´æ
-	 * 
-	 * @param file
-	 *            µ½»º´æµ½ÄÚ´æµÄÎÄ¼ş×ÊÔ´
-	 * @param url
-	 *            ´ËÎÄ¼ş×ÊÔ´µÄURLµØÖ·
-	 * @return
-	 * */
 	private boolean cacheBitmapToMemory(File file, String url) {
 		InputStream is = null;
 		try {
@@ -84,23 +54,16 @@ public class MyNetImageCacheManager extends WeakHashMap<String, Bitmap> {
 		byte[] b = StreamUtil.getByteByStream(is);
 		Bitmap bitmap = BitmapFactory.decodeByteArray(b, 0, b.length);
 		if (bitmap != null) {
-			this.put(url, bitmap, false);// ,Ö»ÊÇ»º´æµ½ÄÚ´æ
+			this.put(url, bitmap, false);
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	/**
-	 * »º´æÍ¼Æ¬
-	 * 
-	 * @param key
-	 * @param bitmap
-	 * @param isCacheToLocal
-	 *            ÊÇ·ñÒª»º´æµ½±¾µØ
-	 * */
+	// ç¼“å­˜åˆ°æœ¬WeakHashMapä¸­
 	public Bitmap put(String key, Bitmap bitmap, boolean isCacheToLocal) {
-		if (isCacheToLocal) {// Òª»º´æµ½±¾µØ£¬Ôòµ÷ÓÃ×ÓÀàµÄÖØĞ´·½·¨put»º´æ
+		if (isCacheToLocal) {
 			return this.put(key, bitmap);
 		} else {
 			return super.put(key, bitmap);
@@ -118,19 +81,17 @@ public class MyNetImageCacheManager extends WeakHashMap<String, Bitmap> {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		value.compress(CompressFormat.JPEG, 100, os);// Ñ¹ËõÁ÷ÎÄ¼ş
+		value.compress(CompressFormat.JPEG, 100, os);
 
 		try {
 			os.flush();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if (os != null) {
 			try {
 				os.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -138,11 +99,6 @@ public class MyNetImageCacheManager extends WeakHashMap<String, Bitmap> {
 		return super.put(key, value);
 	}
 
-	/**
-	 * ÊÇ·ñ´æÔÚ±¾µØ»º´æÄ¿Â¼£¬ÓĞÔò·µ»Ø´ËÄ¿Â¼£¬ÎŞÔòĞÂ½¨´ËÄ¿Â¼²¢·µ»Ø
-	 * 
-	 * @return String
-	 * */
 	public String isExistCachePath() {
 		String cachePath, rootPath = null;
 		if (Environment.getExternalStorageState().equals(
@@ -160,13 +116,6 @@ public class MyNetImageCacheManager extends WeakHashMap<String, Bitmap> {
 		return cachePath;
 	}
 
-	/**
-	 * URL×ª»»³ÉÎÄ¼şÃû
-	 * 
-	 * @param url
-	 *            ´ı×ª»»URL
-	 * @return String
-	 * */
 	private String UrlToFileName(String url) {
 		String replacement = "_";
 		String fileName = url.replace("//", replacement);
@@ -178,50 +127,40 @@ public class MyNetImageCacheManager extends WeakHashMap<String, Bitmap> {
 		return fileName;
 	}
 
-	/**
-	 * Ö»»º´æµ½±¾µØ
-	 * */
+	// å­˜æ”¾bitmap å¯¹è±¡å†…å®¹ åˆ°æœ¬åœ°æ–‡ä»¶
 	public void putLocal(String key, Bitmap value) {
 		OutputStream os = null;
 		String fileName = UrlToFileName(key);
 		String path = isExistCachePath();
 		File file = new File(path, fileName);
-		Log.e("putLocal..........",file.getAbsolutePath()+"::"+file.exists());
 		try {
 			os = new FileOutputStream(file);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		value.compress(CompressFormat.JPEG, 100, os);// Ñ¹ËõÁ÷ÎÄ¼ş
+		value.compress(CompressFormat.JPEG, 100, os);
 
 		try {
 			os.flush();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		if (os != null) {
-			try {
-				os.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		} finally {
+			if (os != null) {
+				try {
+					os.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
 
-	/**
-	 * ÅĞ¶Ï±¾µØ»º´æÎÄ¼ş¼ĞÖĞÊÇ·ñ´æÔÚ´ËÍ¼Æ¬×ÊÔ´
-	 * 
-	 * @param url
-	 * @return
-	 * */
 	public boolean isBitmapExistInLocal(String url) {
-		if(url==null){
+		if (url == null) {
 			return false;
 		}
-		String fileName = UrlToFileName(url);// ÒòÎªÎÄ¼şÃûÃüÃûÖĞ²»×¼³öÏÖ·Ç·¨µÄÒ»Ğ©×Ö·û£¨URL´æÔÚÕâÖÖ×Ö·û£©
-		String path = isExistCachePath();// ÊÇ·ñ´æÔÚ»º´æÄ¿Â¼
+		String fileName = UrlToFileName(url);
+		String path = isExistCachePath();
 		File file = new File(path, fileName);
 		if (!file.exists()) {
 			return false;
@@ -230,24 +169,17 @@ public class MyNetImageCacheManager extends WeakHashMap<String, Bitmap> {
 		}
 	}
 
-	/**
-	 * ¶ÁÈ¡±¾µØ»º´æÎÄ¼ş
-	 * 
-	 * @param url
-	 * @return
-	 * */
 	public Bitmap getBitmapFromLocal(String url) {
 		FileInputStream fis = null;
-		String fileName = UrlToFileName(url);// ÒòÎªÎÄ¼şÃûÃüÃûÖĞ²»×¼³öÏÖ·Ç·¨µÄÒ»Ğ©×Ö·û£¨URL´æÔÚÕâÖÖ×Ö·û£©
-		String path = isExistCachePath();// ÊÇ·ñ´æÔÚ»º´æÄ¿Â¼
+		String fileName = UrlToFileName(url);
+		String path = isExistCachePath();
 		File file = new File(path, fileName);
 		if (!file.exists()) {
 			return null;
-		} else {// ¶ÁÈ¡±¾µØ»º´æµÄBitmap×ÊÔ´
+		} else {
 			try {
 				fis = new FileInputStream(file);
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return BitmapFactory.decodeStream(fis);
